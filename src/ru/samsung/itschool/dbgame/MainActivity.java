@@ -20,7 +20,7 @@ public class MainActivity extends Activity {
 	ImageButton playButton;
 
 	@Override
-	protected void onCreate(Bundle  savedInstanceState) {
+	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		this.setContentView(R.layout.activity_main);
 		dbManager = DBManager.getInstance(this);
@@ -49,12 +49,14 @@ public class MainActivity extends Activity {
 			public void onAnimationEnd(Animation animation) {
 				playButton.setClickable(true);
 				playButton.setImageResource(R.drawable.green);
-				dbManager.addResult(MainActivity.this.playerName.getText().toString(),
-						            Integer.parseInt(MainActivity.this.gameResult.getText().toString()));
+				dbManager.addResult(MainActivity.this.playerName.getText()
+						.toString(), Integer
+						.parseInt(MainActivity.this.gameResult.getText()
+								.toString()));
 			}
 		});
 
-		gameResult.setText(((int) (Math.random() * 1001))+"");
+		gameResult.setText(((int) (Math.random() * 1001)) + "");
 		gameResult.startAnimation(play);
 
 	}
@@ -62,12 +64,10 @@ public class MainActivity extends Activity {
 	public void showHoF(View v) {
 		startActivity(new Intent(this, HoFActivity.class));
 	}
+
+	// public void showStats(View v) {
+	// startActivity(new Intent(this, Stats.class));
+	// }
+
 	
-	public void showStats(View v) {
-		startActivity(new Intent(this, Stats.class));
-	}
-	
-	public void clear(View v) {
-		dbManager.clearResults();
-	}
 }

@@ -1,9 +1,11 @@
 package ru.samsung.itschool.dbgame;
 
 import java.util.ArrayList;
+
 import android.app.Activity;
 import android.os.Bundle;
-import android.widget.TextView;
+import android.view.View;
+import android.widget.ListView;
 
 public class HoFActivity extends Activity {
 
@@ -15,13 +17,16 @@ public class HoFActivity extends Activity {
 		setContentView(R.layout.activity_ho_f);
 		dbManager = DBManager.getInstance(this);
 		
-		TextView restv = (TextView)this.findViewById(R.id.results);
+		ListView restv = (ListView)this.findViewById(R.id.GameRec);
 		ArrayList<Result> results = dbManager.getAllResults();
 		String resStr = "";
 		for (Result res : results)
 		{
 			resStr += res.name + ": " + res.score + "\n";
 		}	
-		restv.setText(resStr);
+		restv.setFilterText(resStr);
+	}
+	public void ClearRec(View v) {
+		dbManager.clearResults();
 	}
 }

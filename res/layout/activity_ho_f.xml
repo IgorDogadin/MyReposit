@@ -2,13 +2,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/back"
     tools:context="${relativePackage}.${activityClass}" >
 
-    <TextView 
-        android:id="@+id/results"
+    <Button
+        android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="36dp"
-        />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:text="Clean Records" 
+    android:onClick="@+id/ClearRec"/>
+
+    <ListView
+        android:id="@+id/GameRec"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@+id/button1" >
+
+    </ListView>
 
 </RelativeLayout>
